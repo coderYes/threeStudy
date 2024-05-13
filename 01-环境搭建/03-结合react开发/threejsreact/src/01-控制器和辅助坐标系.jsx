@@ -19,30 +19,10 @@ function App() {
 	const geometry = new THREE.BoxGeometry(1, 1, 1)
 	// 创建材质
 	const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-	const parentMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 })
 	// 创建网格
-	let parentCube = new THREE.Mesh(geometry, parentMaterial)
 	const cube = new THREE.Mesh(geometry, material)
-	parentCube.add(cube)
-	parentCube.position.set(-3, 0, 0)
-	// 父元素缩放子元素也跟着缩放，然后才是子元素的缩放
-	// parentCube.scale.set(2, 2, 2)
-	// 父元素旋转子元素也跟着旋转，然后才是子元素的旋转
-	parentCube.rotation.x = Math.PI / 4
-
-	// 设置网格位置
-	// cube.position.x = 2
-	// cube.position.y = 4
-	// cube.position.z = 4
-	cube.position.set(3, 0, 0)
-	// 设置立方体的放大
-	cube.scale.set(2, 2, 2)
-	// 绕着x轴旋转
-	cube.rotation.x = Math.PI / 4
-
 	// 将网格添加到场景中
-	scene.add(parentCube)
-
+	scene.add(cube)
 	// 设置相机位置
 	camera.position.z = 2
 	camera.position.y = 4
